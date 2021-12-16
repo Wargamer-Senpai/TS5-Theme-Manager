@@ -7,7 +7,7 @@ $form.Size = New-Object System.Drawing.Size(300,200)
 $form.StartPosition = 'CenterScreen'
 
 $OKButton = New-Object System.Windows.Forms.Button
-$OKButton.Location = New-Object System.Drawing.Point(75,120)
+$OKButton.Location = New-Object System.Drawing.Point(75, 133)
 $OKButton.Size = New-Object System.Drawing.Size(75,23)
 $OKButton.Text = 'OK'
 $OKButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
@@ -15,7 +15,7 @@ $form.AcceptButton = $OKButton
 $form.Controls.Add($OKButton)
 
 $CancelButton = New-Object System.Windows.Forms.Button
-$CancelButton.Location = New-Object System.Drawing.Point(150,120)
+$CancelButton.Location = New-Object System.Drawing.Point(160,133)
 $CancelButton.Size = New-Object System.Drawing.Size(75,23)
 $CancelButton.Text = 'Cancel'
 $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
@@ -34,8 +34,9 @@ $listBox.Size = New-Object System.Drawing.Size(260,20)
 
 $listBox.SelectionMode = 'MultiExtended'
 
-[void] $listBox.Items.Add('AnimeSpeak')
-[void] $listBox.Items.Add('LoLSpeak')
+[void] $listBox.Items.Add('AnimeSpeak (by Wargamer-Senpai)')
+[void] $listBox.Items.Add('Colorful TeamSpeak (by LeonMarcelHD)')
+[void] $listBox.Items.Add('LoLSpeak (by Wargamer-Senpai)')
 #[void] $listBox.Items.Add('Item 3')
 #[void] $listBox.Items.Add('Item 4')
 #[void] $listBox.Items.Add('Item 5')
@@ -46,13 +47,12 @@ $form.Topmost = $true
 
 $result = $form.ShowDialog()
 
-if ($result -eq [System.Windows.Forms.DialogResult]::OK)
-{
+if ($result -eq [System.Windows.Forms.DialogResult]::OK){
     $SelectedItems = $listBox.SelectedItems
     
-  $ArrayLinks = @{'AnimeSpeak'='https://github.com/Wargamer-Senpai/teamspeak5-Theme-Anime/releases/latest/download/de.wargamer.anime.teamspeak.zip'; 'LoLSpeak'='https://github.com/Wargamer-Senpai/LoLSpeak/releases/latest/download/de.wargamer.lol.teamspeak.zip'}
-  $ArrayDirectory = @{'AnimeSpeak'='de.wargamer.anime.teamspeak';'LoLSpeak'='de.wargamer.lol.teamspeak'}
-  $ArrayDirectoryZip = @{'AnimeSpeak'='de.wargamer.anime.teamspeak.zip';'LoLSpeak'='de.wargamer.lol.teamspeak.zip'}
+  $ArrayLinks = @{'AnimeSpeak (by Wargamer-Senpai)' = 'https://github.com/Wargamer-Senpai/teamspeak5-Theme-Anime/releases/latest/download/de.wargamer.anime.teamspeak.zip'; 'LoLSpeak (by Wargamer-Senpai)' = 'https://github.com/Wargamer-Senpai/LoLSpeak/releases/latest/download/de.wargamer.lol.teamspeak.zip'; 'Colorful TeamSpeak (by LeonMarcelHD)' = 'https://github.com/LeonMarcel-HD/Colorful-TeamSpeak/releases/latest/download/de.leonmarcelhd.colorful.teamspeak.zip'}
+  $ArrayDirectory = @{'AnimeSpeak (by Wargamer-Senpai)' = 'de.wargamer.anime.teamspeak'; 'LoLSpeak (by Wargamer-Senpai)' = 'de.wargamer.lol.teamspeak'; 'Colorful TeamSpeak (by LeonMarcelHD)' = 'de.leonmarcelhd.colorful.teamspeak' }
+  $ArrayDirectoryZip = @{'AnimeSpeak (by Wargamer-Senpai)' = 'de.wargamer.anime.teamspeak.zip'; 'LoLSpeak (by Wargamer-Senpai)' = 'de.wargamer.lol.teamspeak.zip'; 'Colorful TeamSpeak (by LeonMarcelHD)' = 'de.leonmarcelhd.colorful.teamspeak.zip' }
 
 
     foreach ($item in $SelectedItems){
