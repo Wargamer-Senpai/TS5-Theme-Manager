@@ -9,13 +9,29 @@ $form.Text = 'Select Theme'
 $form.Size = New-Object System.Drawing.Size(300,200)
 $form.StartPosition = 'CenterScreen'
 
+$form1 = New-Object System.Windows.Forms.Form
+$form1.Text = 'Finished ....'
+$form1.Size = New-Object System.Drawing.Size(230, 115)
+$form1.StartPosition = 'CenterScreen'
+
+#create ok button
 $OKButton = New-Object System.Windows.Forms.Button
 $OKButton.Location = New-Object System.Drawing.Point(75, 133)
 $OKButton.Size = New-Object System.Drawing.Size(75,23)
 $OKButton.Text = 'OK'
 $OKButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
+
+$OKButton1 = New-Object System.Windows.Forms.Button
+$OKButton1.Location = New-Object System.Drawing.Point(75, 50)
+$OKButton1.Size = New-Object System.Drawing.Size(75, 23)
+$OKButton1.Text = 'OK'
+$OKButton1.DialogResult = [System.Windows.Forms.DialogResult]::OK
+
+#Add OK button to windows 
 $form.AcceptButton = $OKButton
 $form.Controls.Add($OKButton)
+$form1.AcceptButton = $OKButton1
+$form1.Controls.Add($OKButton1)
 
 $CancelButton = New-Object System.Windows.Forms.Button
 $CancelButton.Location = New-Object System.Drawing.Point(160,133)
@@ -29,7 +45,15 @@ $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10,20)
 $label.Size = New-Object System.Drawing.Size(300,30)
 $label.Text = 'Please make a selection from the list below multi select with ctrl(strg) or drag:'
+$label1 = New-Object System.Windows.Forms.Label
+$label1.Location = New-Object System.Drawing.Point(10, 20)
+$label1.Size = New-Object System.Drawing.Size(300, 30)
+$label1.Text = 'Finished updating/installing Themes....'
+
 $form.Controls.Add($label)
+$form1.Controls.Add($label1)
+
+
 
 $listBox = New-Object System.Windows.Forms.Listbox
 $listBox.Location = New-Object System.Drawing.Point(10,60)
@@ -79,5 +103,5 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK){
   #Remove Temp directory
   Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse
 	#Write-Output "Finished...."
-	
+  $form1.ShowDialog()
 }
