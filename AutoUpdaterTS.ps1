@@ -1,8 +1,11 @@
+###########
+#   GUI   #
+###########
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $form = New-Object System.Windows.Forms.Form
-$form.Text = 'Data Entry Form'
+$form.Text = 'Select Theme'
 $form.Size = New-Object System.Drawing.Size(300,200)
 $form.StartPosition = 'CenterScreen'
 
@@ -34,10 +37,10 @@ $listBox.Size = New-Object System.Drawing.Size(260,20)
 
 $listBox.SelectionMode = 'MultiExtended'
 
-[void] $listBox.Items.Add('AnimeSpeak (by Wargamer-Senpai)')
-[void] $listBox.Items.Add('Colorful TeamSpeak (by LeonMarcelHD)')
-[void] $listBox.Items.Add('LoLSpeak (by Wargamer-Senpai)')
-#[void] $listBox.Items.Add('Item 3')
+[void] $listBox.Items.Add('AnimeSpeak ( by Wargamer-Senpai )')
+[void] $listBox.Items.Add('Colorful TeamSpeak ( by LeonMarcelHD )')
+[void] $listBox.Items.Add('CleanSpeak ( by Gamer92000 )')
+[void] $listBox.Items.Add('LoLSpeak ( by Wargamer-Senpai )')
 #[void] $listBox.Items.Add('Item 4')
 #[void] $listBox.Items.Add('Item 5')
 
@@ -47,27 +50,34 @@ $form.Topmost = $true
 
 $result = $form.ShowDialog()
 
+###########
+#   Main  #
+###########
 if ($result -eq [System.Windows.Forms.DialogResult]::OK){
     $SelectedItems = $listBox.SelectedItems
     
-  $ArrayLinks = @{'AnimeSpeak (by Wargamer-Senpai)' = 'https://github.com/Wargamer-Senpai/teamspeak5-Theme-Anime/releases/latest/download/de.wargamer.anime.teamspeak.zip'; 'LoLSpeak (by Wargamer-Senpai)' = 'https://github.com/Wargamer-Senpai/LoLSpeak/releases/latest/download/de.wargamer.lol.teamspeak.zip'; 'Colorful TeamSpeak (by LeonMarcelHD)' = 'https://github.com/LeonMarcel-HD/Colorful-TeamSpeak/releases/latest/download/de.leonmarcelhd.colorful.teamspeak.zip'}
-  $ArrayDirectory = @{'AnimeSpeak (by Wargamer-Senpai)' = 'de.wargamer.anime.teamspeak'; 'LoLSpeak (by Wargamer-Senpai)' = 'de.wargamer.lol.teamspeak'; 'Colorful TeamSpeak (by LeonMarcelHD)' = 'de.leonmarcelhd.colorful.teamspeak' }
-  $ArrayDirectoryZip = @{'AnimeSpeak (by Wargamer-Senpai)' = 'de.wargamer.anime.teamspeak.zip'; 'LoLSpeak (by Wargamer-Senpai)' = 'de.wargamer.lol.teamspeak.zip'; 'Colorful TeamSpeak (by LeonMarcelHD)' = 'de.leonmarcelhd.colorful.teamspeak.zip' }
-
+  $userOnGithub = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'Wargamer-Senpai'; 'LoLSpeak ( by Wargamer-Senpai )' = 'Wargamer-Senpai'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'LeonMarcel-HD'; 'CleanSpeak ( by Gamer92000 )' = 'Gamer92000' }
+  $repoOnGithub = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'teamspeak5-Theme-Anime'; 'LoLSpeak ( by Wargamer-Senpai )' = 'LoLSpeak'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'Colorful-TeamSpeak'; 'CleanSpeak ( by Gamer92000 )' = 'CleanSpeak' }
+  $ArrayDirectory = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'de.wargamer.anime.teamspeak'; 'LoLSpeak ( by Wargamer-Senpai )' = 'de.wargamer.lol.teamspeak'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'de.leonmarcelhd.colorful.teamspeak'; 'CleanSpeak ( by Gamer92000 )' = 'de.julianimhof.cleanspeak' }
+  
+  #check if exists, if yes remove, else just create temp directory for unzipping
+  if (Test-path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" ) { Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse }
+  New-Item -Path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -ItemType Directory
 
     foreach ($item in $SelectedItems){
-    $curLink=$ArrayLinks[$item]
     $curDir=$ArrayDirectory[$item]
-    $curZip=$ArrayDirectoryZip[$item]
-    Invoke-WebRequest -uri "$curLink" -OutFile "C:\Users\$env:username\AppData\Local\Temp\$curZip" 
-    if (Test-path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" ) { Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse }
-    New-Item -Path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -ItemType Directory
-    Expand-Archive "C:\Users\$env:username\AppData\Local\Temp\$curZip" -destinationpath "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer"
+    $curZip = $curDir + '.zip'
+    $gitUser = $userOnGithub[$item]
+    $gitRepo = $repoOnGithub[$item]
+
+    Invoke-WebRequest -uri "https://github.com/$gitUser/$gitRepo/releases/latest/download/$curZip" -OutFile "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer\$curZip" 
+    Expand-Archive "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer\$curZip" -destinationpath "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer"
     if (Test-path "C:\Users\$env:username\AppData\Roaming\TeamSpeak\Default\extensions\$curDir") { Remove-Item "C:\Users\$env:username\AppData\Roaming\TeamSpeak\Default\extensions\$curDir" -Recurse }
     Move-Item -Path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer\$curDir" -Destination "C:\Users\$env:username\AppData\Roaming\TeamSpeak\Default\extensions"
-    Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse
-    Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\$curZip" -Recurse
-    }
-	echo "Finished...."
-	sleep(2)
+    Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer\$curZip" -Recurse
+  }
+  #Remove Temp directory
+  Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse
+	#Write-Output "Finished...."
+	
 }
