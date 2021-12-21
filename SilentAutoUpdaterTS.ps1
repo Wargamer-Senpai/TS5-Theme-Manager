@@ -1,6 +1,7 @@
 ###########
 #Variables#
 ###########
+$ProgressPreference = 'SilentlyContinue'
 Write-Output "Starting..." > $logfile
 $compatibleAddons=@('de.wargamer.lol.teamspeak'; 'de.wargamer.anime.teamspeak'; 'de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak') 
 $userOnGithub=@{'de.wargamer.lol.teamspeak' = 'Wargamer-Senpai'; 'de.wargamer.anime.teamspeak' = 'Wargamer-Senpai'; 'de.leonmarcelhd.colorful.teamspeak' = 'LeonMarcel-HD'; 'de.julianimhof.cleanspeak' = 'Gamer92000' }
@@ -12,12 +13,18 @@ $foundFolders=Get-ChildItem $BaseDir -Recurse | Where-Object { $_.PSIsContainer 
 Write-Output "Folders in extensions: $foundFolders.Name" >> $logfile
 #$foundFolders.Name
 
+
+
+
+
+
 ########
 # Main #
 ########
+
 #check if exists, if yes remove, else just create temp directory for unzipping
 if (Test-path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" ) { Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse }
-New-Item -Path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -ItemType Directory
+New-Item -Path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -ItemType Directory | Out-Null
 
 foreach ($folderName in $foundFolders.Name) {
     
@@ -50,13 +57,14 @@ foreach ($folderName in $foundFolders.Name) {
         }
         else {
             Write-Output "equal, no need to download (Web: $versionWeb, Local: $versionLocal)" >> $logfile
-
+            
         }
     } else {
         Write-Output "Couldnt find $folderName in Compatible list" >> $logfile
-
+        
     }
 }
+Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse
 Write-Output "...finished" >> $logfile
 
 
