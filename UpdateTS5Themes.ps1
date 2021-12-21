@@ -6,7 +6,7 @@ Add-Type -AssemblyName System.Drawing
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'Select Theme'
-$form.Size = New-Object System.Drawing.Size(300,200)
+$form.Size = New-Object System.Drawing.Size(310,200)
 $form.StartPosition = 'CenterScreen'
 
 $form1 = New-Object System.Windows.Forms.Form
