@@ -6,6 +6,7 @@ Write-Output "Starting..." > $logfile
 $compatibleAddons = @('de.wargamer.lol.teamspeak'; 'de.wargamer.anime.teamspeak'; 'de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak'; 'com.shiinaskins.teamspeak') 
 $userOnGithub = @{'de.wargamer.lol.teamspeak' = 'Wargamer-Senpai'; 'de.wargamer.anime.teamspeak' = 'Wargamer-Senpai'; 'de.leonmarcelhd.colorful.teamspeak' = 'LeonMarcel-HD'; 'de.julianimhof.cleanspeak' = 'Gamer92000'; 'com.shiinaskins.teamspeak' = 'AikoMidori'}
 $repoOnGithub = @{'de.wargamer.lol.teamspeak' = 'LoLSpeak'; 'de.wargamer.anime.teamspeak' = 'teamspeak5-Theme-Anime'; 'de.leonmarcelhd.colorful.teamspeak' = 'Colorful-TeamSpeak'; 'de.julianimhof.cleanspeak' = 'CleanSpeak'; 'com.shiinaskins.teamspeak' = 'TeamSpeak-5-Dark'}
+
 $BaseDir="C:\Users\$env:username\AppData\Roaming\TeamSpeak\Default\extensions"
 $logfile="$env:temp\SilentAutoUpdater.log"
 $NameToFind="speak"
