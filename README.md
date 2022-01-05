@@ -49,5 +49,5 @@ normaly you can just ignore it, like:
 
 
 ***1**: The Silent Updater Ignores everything, except for the compatible files, currently these themes are: CleanSpeak, Colorfull, Windows 11 inspired, AnimeSpeak and LoLSpeak. 
-If you want your theme added just PM me on TS5 or in the forum, then i can add your theme to the source code. 
+If you want your theme added just PM me on TS5,in the forum or make an issue, then i can add your theme to the source code. 
 
