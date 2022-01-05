@@ -59,7 +59,7 @@ $form1.Controls.Add($label1)
 
 $listBox = New-Object System.Windows.Forms.Listbox
 $listBox.Location = New-Object System.Drawing.Point(10,60)
-$listBox.Size = New-Object System.Drawing.Size(260,20)
+$listBox.Size = New-Object System.Drawing.Size(290,20)
 
 $listBox.SelectionMode = 'MultiExtended'
 
