@@ -6,7 +6,7 @@ Add-Type -AssemblyName System.Drawing
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'Select Theme'
-$form.Size = New-Object System.Drawing.Size(310,200)
+$form.Size = New-Object System.Drawing.Size(325,250)
 $form.StartPosition = 'CenterScreen'
 
 $form1 = New-Object System.Windows.Forms.Form
@@ -16,25 +16,26 @@ $form1.StartPosition = 'CenterScreen'
 
 #create ok button
 $OKButton = New-Object System.Windows.Forms.Button
-$OKButton.Location = New-Object System.Drawing.Point(75, 133)
+$OKButton.Location = New-Object System.Drawing.Point(75, 183)
 $OKButton.Size = New-Object System.Drawing.Size(75,23)
 $OKButton.Text = 'OK'
 $OKButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
-
+#create second ok button
 $OKButton1 = New-Object System.Windows.Forms.Button
 $OKButton1.Location = New-Object System.Drawing.Point(75, 50)
 $OKButton1.Size = New-Object System.Drawing.Size(75, 23)
 $OKButton1.Text = 'OK'
 $OKButton1.DialogResult = [System.Windows.Forms.DialogResult]::OK
 
-#Add OK button to windows 
+#Add both OK button to windows 
 $form.AcceptButton = $OKButton
 $form.Controls.Add($OKButton)
 $form1.AcceptButton = $OKButton1
 $form1.Controls.Add($OKButton1)
 
+#create cancel button
 $CancelButton = New-Object System.Windows.Forms.Button
-$CancelButton.Location = New-Object System.Drawing.Point(160,133)
+$CancelButton.Location = New-Object System.Drawing.Point(160,183)
 $CancelButton.Size = New-Object System.Drawing.Size(75,23)
 $CancelButton.Text = 'Cancel'
 $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
@@ -44,7 +45,8 @@ $form.Controls.Add($CancelButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10,20)
 $label.Size = New-Object System.Drawing.Size(300,30)
-$label.Text = 'Please make a selection from the list below multi select with ctrl(strg) or drag:'
+$label.Text = 'Please make a selection from the list belowm, *multiselect* with ctrl(strg) or drag:'
+
 $label1 = New-Object System.Windows.Forms.Label
 $label1.Location = New-Object System.Drawing.Point(10, 20)
 $label1.Size = New-Object System.Drawing.Size(300, 30)
@@ -69,7 +71,7 @@ $listBox.SelectionMode = 'MultiExtended'
 [void] $listBox.Items.Add('Windows 11 inspired ( by Shiina )')
 
 
-$listBox.Height = 70
+$listBox.Height = 120
 $form.Controls.Add($listBox)
 $form.Topmost = $true
 
@@ -87,7 +89,7 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK){
                    'CleanSpeak ( by Gamer92000 )' = 'CleanSpeak'; 'Windows 11 inspired ( by Shiina )' = 'TeamSpeak-5-Dark' }
   $ArrayDirectory = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'de.wargamer.anime.teamspeak'; 'LoLSpeak ( by Wargamer-Senpai )' = 'de.wargamer.lol.teamspeak';
                      'Colorful TeamSpeak ( by LeonMarcelHD )' = 'de.leonmarcelhd.colorful.teamspeak'; 'CleanSpeak ( by Gamer92000 )' = 'de.julianimhof.cleanspeak';
-                      'Windows 11 inspired ( by Shiina )' = 'com.shiinaskins.teamspeak.zip' }
+                      'Windows 11 inspired ( by Shiina )' = 'com.shiinaskins.teamspeak' }
   
   #check if directory exists, if yes remove, else just create temp directory for unzipping
   if (Test-path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" ) { Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse }
