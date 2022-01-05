@@ -61,12 +61,13 @@ $listBox.Size = New-Object System.Drawing.Size(260,20)
 
 $listBox.SelectionMode = 'MultiExtended'
 
+#List of all skins
 [void] $listBox.Items.Add('AnimeSpeak ( by Wargamer-Senpai )')
 [void] $listBox.Items.Add('Colorful TeamSpeak ( by LeonMarcelHD )')
 [void] $listBox.Items.Add('CleanSpeak ( by Gamer92000 )')
 [void] $listBox.Items.Add('LoLSpeak ( by Wargamer-Senpai )')
-#[void] $listBox.Items.Add('Item 4')
-#[void] $listBox.Items.Add('Item 5')
+[void] $listBox.Items.Add('Windows 11 inspired ( by Shiina )')
+
 
 $listBox.Height = 70
 $form.Controls.Add($listBox)
@@ -80,11 +81,15 @@ $result = $form.ShowDialog()
 if ($result -eq [System.Windows.Forms.DialogResult]::OK){
     $SelectedItems = $listBox.SelectedItems
     
-  $userOnGithub = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'Wargamer-Senpai'; 'LoLSpeak ( by Wargamer-Senpai )' = 'Wargamer-Senpai'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'LeonMarcel-HD'; 'CleanSpeak ( by Gamer92000 )' = 'Gamer92000' }
-  $repoOnGithub = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'teamspeak5-Theme-Anime'; 'LoLSpeak ( by Wargamer-Senpai )' = 'LoLSpeak'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'Colorful-TeamSpeak'; 'CleanSpeak ( by Gamer92000 )' = 'CleanSpeak' }
-  $ArrayDirectory = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'de.wargamer.anime.teamspeak'; 'LoLSpeak ( by Wargamer-Senpai )' = 'de.wargamer.lol.teamspeak'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'de.leonmarcelhd.colorful.teamspeak'; 'CleanSpeak ( by Gamer92000 )' = 'de.julianimhof.cleanspeak' }
+  $userOnGithub = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'Wargamer-Senpai'; 'LoLSpeak ( by Wargamer-Senpai )' = 'Wargamer-Senpai'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'LeonMarcel-HD';
+                   'CleanSpeak ( by Gamer92000 )' = 'Gamer92000'; 'Windows 11 inspired ( by Shiina )' = 'AikoMidori' }
+  $repoOnGithub = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'teamspeak5-Theme-Anime'; 'LoLSpeak ( by Wargamer-Senpai )' = 'LoLSpeak'; 'Colorful TeamSpeak ( by LeonMarcelHD )' = 'Colorful-TeamSpeak';
+                   'CleanSpeak ( by Gamer92000 )' = 'CleanSpeak'; 'Windows 11 inspired ( by Shiina )' = 'TeamSpeak-5-Dark' }
+  $ArrayDirectory = @{'AnimeSpeak ( by Wargamer-Senpai )' = 'de.wargamer.anime.teamspeak'; 'LoLSpeak ( by Wargamer-Senpai )' = 'de.wargamer.lol.teamspeak';
+                     'Colorful TeamSpeak ( by LeonMarcelHD )' = 'de.leonmarcelhd.colorful.teamspeak'; 'CleanSpeak ( by Gamer92000 )' = 'de.julianimhof.cleanspeak';
+                      'Windows 11 inspired ( by Shiina )' = 'com.shiinaskins.teamspeak.zip' }
   
-  #check if exists, if yes remove, else just create temp directory for unzipping
+  #check if directory exists, if yes remove, else just create temp directory for unzipping
   if (Test-path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" ) { Remove-Item –path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -Recurse }
   New-Item -Path "C:\Users\$env:username\AppData\Local\Temp\TS5_Themes.de.Wargamer" -ItemType Directory
 
