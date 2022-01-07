@@ -6,7 +6,7 @@ Add-Type -AssemblyName System.Drawing
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'Select Theme'
-$form.Size = New-Object System.Drawing.Size(325,250)
+$form.Size = New-Object System.Drawing.Size(300,250)
 $form.StartPosition = 'CenterScreen'
 
 $form1 = New-Object System.Windows.Forms.Form
@@ -16,7 +16,7 @@ $form1.StartPosition = 'CenterScreen'
 
 #create ok button
 $OKButton = New-Object System.Windows.Forms.Button
-$OKButton.Location = New-Object System.Drawing.Point(75, 183)
+$OKButton.Location = New-Object System.Drawing.Point(60, 179)
 $OKButton.Size = New-Object System.Drawing.Size(75,23)
 $OKButton.Text = 'OK'
 $OKButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
@@ -35,7 +35,7 @@ $form1.Controls.Add($OKButton1)
 
 #create cancel button
 $CancelButton = New-Object System.Windows.Forms.Button
-$CancelButton.Location = New-Object System.Drawing.Point(160,183)
+$CancelButton.Location = New-Object System.Drawing.Point(145,179)
 $CancelButton.Size = New-Object System.Drawing.Size(75,23)
 $CancelButton.Text = 'Cancel'
 $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
@@ -45,7 +45,7 @@ $form.Controls.Add($CancelButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10,20)
 $label.Size = New-Object System.Drawing.Size(300,30)
-$label.Text = 'Please make a selection from the list belowm, *multiselect* with ctrl(strg) or drag:'
+$label.Text = 'Please make a selection from the list belowm,  *multiselect* with ctrl(strg) or drag:'
 
 $label1 = New-Object System.Windows.Forms.Label
 $label1.Location = New-Object System.Drawing.Point(10, 20)
@@ -59,7 +59,7 @@ $form1.Controls.Add($label1)
 
 $listBox = New-Object System.Windows.Forms.Listbox
 $listBox.Location = New-Object System.Drawing.Point(10,60)
-$listBox.Size = New-Object System.Drawing.Size(290,20)
+$listBox.Size = New-Object System.Drawing.Size(250,20)
 
 $listBox.SelectionMode = 'MultiExtended'
 
