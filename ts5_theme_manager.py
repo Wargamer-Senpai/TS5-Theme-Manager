@@ -9,9 +9,8 @@ from urllib import request
 from tkinter.ttk import Progressbar
 import webbrowser
 import zipfile
-import wget
 import threading
-import json
+#import json
 import sys
 
 #############
