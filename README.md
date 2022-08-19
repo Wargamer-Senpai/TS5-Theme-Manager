@@ -23,7 +23,7 @@ Download Updater/Installer from here:
 
 <br>
 
-
+<!--
 <img src="https://user-images.githubusercontent.com/77844672/148183999-142601b1-d520-4e6b-a1cd-61fb6983aa8c.png" width="75%" height="75%">
 
 
@@ -32,15 +32,14 @@ Download Updater/Installer from here:
 Chrome/Firefox/etc. will say its a weird file and will say something like: 
 
 <img src="https://user-images.githubusercontent.com/77844672/148185201-79752da6-e5cd-4b74-8bbd-b82f05e4c4cc.png" width="40%" height="40%">
-normaly you can just ignore it, like:
+#normaly you can just ignore it, like:
 
 <img src="https://user-images.githubusercontent.com/77844672/148185359-6ebbd65b-c4c6-48d1-b674-cc3eb363fd85.png" width="10%" height="10%">
 
-**Reason: Its not signed with any Certificate and it has been converted with <a href="https://github.com/MScholtes/PS2EXE">PS2EXE</a>**
+-->
 
 
 
 
-***1**: The Silent Updater Ignores everything, except for the compatible files, currently these themes are: CleanSpeak, Colorfull, Windows 11 inspired, AnimeSpeak and LoLSpeak. 
-If you want your theme added just PM me on TS5,in the forum or make an issue, then i can add your theme to the source code. 
+If you want your theme added just PM me on TS5 Wargamer@myteamspeak.com,in the forum or make an issue, then i can add your theme to the source code. 
 
