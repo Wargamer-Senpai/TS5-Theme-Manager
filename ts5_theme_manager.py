@@ -12,6 +12,7 @@ import zipfile
 import wget
 import threading
 import json
+import sys
 
 #############
 # VARIABLES #
@@ -26,17 +27,29 @@ themeArray = {
     'zipFileName': ['de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak', 'de.wargamer.anime.teamspeak', 'de.wargamer.lol.teamspeak', 'com.shiinaskins.teamspeak']
 }
 
+#early function for getting the absolut path for the icon file 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = path.abspath(".")
+
+    return path.join(base_path, relative_path)
+windowIco=resource_path("window.ico")
+
 ######################
 # DESIGN MAIN WINDOW #
 ######################
 mainWindow = Tk()
-mainWindow.title('TS5 Theme Installer')
+mainWindow.title('TS5 Theme Manager')
 mainWindow.geometry("320x220+550+250")
 mainWindow.resizable(0, 0)
 mainWindow.option_add( "*font", "Arial_Greek 11" )
 #mainWindow.config(bg = '#000')
 #!replace with wanted icon
-#mainWindow.iconbitmap("myIcon.ico")
+mainWindow.iconbitmap(windowIco)
 
 #text header
 text1 = Label(text="Choose one or more Theme/s.\nSelect with click drag or \nselect with ctrl(strg)/shift click.", justify=LEFT, anchor='w', font=('Arial_Greek bold',13))
@@ -46,6 +59,7 @@ text1.pack(fill='both', padx=9, pady=5)
 # FUNCTIONS #
 ############# 
 
+#copy paste from https://stackoverflow.com/questions/7674790
 #increase progress of progessbar
 def progress(STEP):
     global progressbar
@@ -81,6 +95,7 @@ def install_themes():
         secondWindow.geometry("270x100+560+260")
         secondWindow.lift()
         secondWindow.attributes("-topmost", True)
+        secondWindow.iconbitmap(windowIco)
         # progressbar 
         progressbar = Progressbar(secondWindow, orient='horizontal', mode='determinate', length=250)
         # place the progressbar
@@ -161,6 +176,7 @@ def error_window(url):
     errorWindow.lift()
     errorWindow.attributes("-topmost", True)
     errorWindow.update()
+    errorWindow.iconbitmap(windowIco)
 
     errorLabel = Label(errorWindow, text="Error while trying to download:\n"+url)
     errorLabel.pack()
