@@ -16,7 +16,7 @@
 
 
 Download Updater/Installer from here:
-1. <a href="https://github.com/Wargamer-Senpai/updateTS5Themes/releases/latest/download/TS5.Theme.Manager.exe">Latest Release</a>
+1. <a href="https://github.com/Wargamer-Senpai/updateTS5Themes/releases/latest/download/TS5ThemeManager.exe">Latest Release</a>
 
 
 
