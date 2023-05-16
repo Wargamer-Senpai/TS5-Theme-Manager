@@ -1,5 +1,5 @@
 <div align="center">
-<h1>teampeak Anime Themes<br/><sub>a theme collection for teamspeak, of some animes</sub></h1>
+<h1>teamspeak Theme Manager<br/><sub>quick install your desired themes</sub></h1>
 
 
 
