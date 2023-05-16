@@ -1,3 +1,15 @@
+<div align="center">
+<h1>teampeak Anime Themes<br/><sub>a theme collection for teamspeak, of some animes</sub></h1>
+
+
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/wargamer-senpai/TS5-Theme-Manager?color=blueviolet&logoColor=blueviolet&logo=github&style=flat-square)]()
+[![GitHub all releases](https://img.shields.io/github/downloads/wargamer-senpai/TS5-Theme-Manager/total?color=blue&logo=github&logoColor=blue&style=flat-square)]()
+[![GitHub Repo stars](https://img.shields.io/github/stars/wargamer-senpai/TS5-Theme-Manager?color=lightblue&logoColor=lightblue&logo=github&style=flat-square)]()
+[![GitHub top language](https://img.shields.io/github/languages/top/wargamer-senpai/TS5-Theme-Manager?color=yellow&logo=python&logoColor=yellow&style=flat-square)]()
+[![GitHub last commit](https://img.shields.io/github/last-commit/wargamer-senpai/TS5-Theme-Manager?color=brightgreen&logo=git&logoColor=brightgreen&style=flat-square)]()
+</div>
+
 
 <img src="https://user-images.githubusercontent.com/77844672/148182316-e14e6f7f-e919-4c88-8940-19b0db0fa9ff.png" width="75%" height="75%">
 1. The User can specifically tell the script what should be updated/installed<br>
