@@ -20,10 +20,10 @@ global progressbar
 downloadLinks = []
 url = 'https://www.google.com'
 themeArray = {
-    'displayArray': ['Colorful TeamSpeak (by LeonMarcelHD)', 'CleanSpeak (by Gamer92000)', 'AnimeSpeak (by Wargamer-Senpai)', 'LoLSpeak (by Wargamer-Senpai)', 'Windows 11 Inspired (by Shiina)'],
-    'gitRepo': ['Colorful-TeamSpeak', 'CleanSpeak', 'teamspeak5-Theme-Anime', 'LoLSpeak', 'TeamSpeak-5-Dark'],
-    'gitUser': ['LeonMarcel-HD', 'Gamer92000', 'Wargamer-Senpai', 'Wargamer-Senpai', 'AikoMidori'],
-    'zipFileName': ['de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak', 'de.wargamer.anime.teamspeak', 'de.wargamer.lol.teamspeak', 'com.shiinaskins.teamspeak']
+    'displayArray': ['Colorful TeamSpeak (by LeonMarcelHD)', 'CleanSpeak (by Gamer92000)', 'AnimeSpeak (by Wargamer-Senpai)', 'LoLSpeak (by Wargamer-Senpai)', 'Windows 11 Inspired (by Shiina)', "TS5 Nue Style Theme (by qeinz)"],
+    'gitRepo': ['Colorful-TeamSpeak', 'CleanSpeak', 'teamspeak5-Theme-Anime', 'LoLSpeak', 'TeamSpeak-5-Dark', "TS5-Nue-Style-Theme"],
+    'gitUser': ['LeonMarcel-HD', 'Gamer92000', 'Wargamer-Senpai', 'Wargamer-Senpai', 'AikoMidori', "qeinz"],
+    'zipFileName': ['de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak', 'de.wargamer.anime.teamspeak', 'de.wargamer.lol.teamspeak', 'com.shiinaskins.teamspeak', "de.qeinz.teamspeak"]
 }
 
 #early function for getting the absolut path for the icon file 
