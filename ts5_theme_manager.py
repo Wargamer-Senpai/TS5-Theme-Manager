@@ -20,10 +20,10 @@ global progressbar
 downloadLinks = []
 url = 'https://www.google.com'
 themeArray = {
-    'displayArray': ['Colorful TeamSpeak (by LeonMarcelHD)', 'CleanSpeak (by Gamer92000)', 'AnimeSpeak (by Wargamer-Senpai)', 'LoLSpeak (by Wargamer-Senpai)', 'Windows 11 Inspired (by Shiina)', "TS5 Nue Style Theme (by qeinz)"],
-    'gitRepo': ['Colorful-TeamSpeak', 'CleanSpeak', 'teamspeak5-Theme-Anime', 'LoLSpeak', 'TeamSpeak-5-Dark', "TS5-Nue-Style-Theme"],
-    'gitUser': ['LeonMarcel-HD', 'Gamer92000', 'Wargamer-Senpai', 'Wargamer-Senpai', 'AikoMidori', "qeinz"],
-    'zipFileName': ['de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak', 'de.wargamer.anime.teamspeak', 'de.wargamer.lol.teamspeak', 'com.shiinaskins.teamspeak', "de.qeinz.teamspeak"]
+    'displayArray': ['Colorful TeamSpeak (by LeonMarcelHD)', 'CleanSpeak (by Gamer92000)', 'AnimeSpeak (by Wargamer-Senpai)', 'LoLSpeak (by Wargamer-Senpai)', 'TS5 Nue Style Theme (by qeinz)', 'Windows 11 Inspired (by Shiina) [BROKEN]'],
+    'gitRepo': ['Colorful-TeamSpeak', 'CleanSpeak', 'teamspeak5-Theme-Anime', 'LoLSpeak', 'TS5-Nue-Style-Theme', 'TeamSpeak-5-Dark'],
+    'gitUser': ['LeonMarcel-HD', 'Gamer92000', 'Wargamer-Senpai', 'Wargamer-Senpai', 'qeinz', 'AikoMidori'],
+    'zipFileName': ['de.leonmarcelhd.colorful.teamspeak', 'de.julianimhof.cleanspeak', 'de.wargamer.anime.teamspeak', 'de.wargamer.lol.teamspeak', 'de.qeinz.teamspeak', 'com.shiinaskins.teamspeak']
 }
 
 #early function for getting the absolut path for the icon file 
@@ -177,9 +177,11 @@ def error_window(url):
     errorWindow.update()
     errorWindow.iconbitmap(windowIco)
 
-    errorLabel = Label(errorWindow, text="Error while trying to download:\n"+url)
+    errorLabel = Text(errorWindow, height=3, width=90,borderwidth=0, bg="#f0f0f0")
+    errorLabel.insert(1.0,"Error while trying to download:\n"+url)
+    errorLabel.config(font=("tahoma", "11", "normal"))
+    errorLabel.configure(inactiveselectbackground=errorLabel.cget("selectbackground"))
     errorLabel.pack()
-
     errorButton = Button(errorWindow, text="OK", width=6, command=errorWindow.destroy)
     errorButton.pack()
 
@@ -200,7 +202,7 @@ def open_creator_website(url):
     if selection:
         for item in selection:
             mainWindow.update()
-            URL='https://github.com/'+themeArray['gitUser'][item]
+            URL='https://github.com/'+themeArray['gitUser'][item]+'/'+themeArray['gitRepo'][item]
             webbrowser.open_new(URL)
         #DEBUGGING
         #debug_output = Label(mainWindow, text=selection, bg="blue")
